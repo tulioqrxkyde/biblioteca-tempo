@@ -11,6 +11,7 @@
  */
 package tempo;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
@@ -24,6 +25,7 @@ public class Tempo {
 
     private final Calendar CALENDARIO = Calendar.getInstance();
     private final Date DATA = new Date();
+    private final SimpleDateFormat S_DATA = new SimpleDateFormat();
     private TimeZone zona;
     private Locale local;
     private Integer dia;
@@ -60,7 +62,6 @@ public class Tempo {
     }
 
     /**
-     *
      * @param dia
      *
      * Recebe um dia como parâmetro e seta o dia como sendo o atual ao
@@ -71,7 +72,6 @@ public class Tempo {
     }
 
     /**
-     *
      * @param mes
      *
      * Recebe um mês como parâmetro e seta o mês como sendo o atual ao
@@ -82,7 +82,6 @@ public class Tempo {
     }
 
     /**
-     *
      * @param ano
      *
      * Recebe um ano como parâmetro e seta o ano como sendo o atual ao
@@ -93,7 +92,6 @@ public class Tempo {
     }
 
     /**
-     * 
      * @return o dia atual da semana em formato numérico:
      * 
      * ( Domingo / Sunday         - > 1 )
@@ -117,7 +115,6 @@ public class Tempo {
     }
 
     /**
-     * 
      * @return o mês atual em formato numérico:
      * 
      * ( Janeiro / January       - > 1 )
@@ -139,11 +136,34 @@ public class Tempo {
     }
 
     /**
-     * 
      * @return o ano atual em formato numérico
      */
     public Integer getAnoAtual() {
         return CALENDARIO.get(Calendar.YEAR);
+    }
+    
+    /**
+     * @return o dia atual da semana em formato texto
+     */
+    public String getDiaAtualExtensoSemana() {
+        S_DATA.applyPattern("EEEEE");
+        return S_DATA.format(DATA);
+    }
+
+    /**
+     * @return o dia atual do mês em formato texto
+     */
+    public String getDiaAtualMesExtenso() {
+        return Dias.valueOf("DIA_".concat((String.valueOf(CALENDARIO.get(Calendar.DAY_OF_MONTH))))).getNome();
+
+    }
+    
+    /**
+     * @return o mês atual em formato texto
+     */
+    public String getMesAtualExtenso() {
+        S_DATA.applyPattern("MMMMM");
+        return S_DATA.format(DATA);
     }
 
     /**
