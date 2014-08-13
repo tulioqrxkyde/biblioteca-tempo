@@ -1,7 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/* Este arquivo é parte da API Tempo.
+ * Copyright (C) 2014 (Túlio Vidal - tulio.xcrtf).
+ *
+ * Este projeto é um software livre; você pode redistribuí-lo e/ou  modificá-lo dentro dos termos da 
+ * Licença Pública Geral GNU como publicada pela Fundação do Software Livre (FSF); na versão 2 da Licença,
+ * ou (na sua opinião) qualquer versão.
+ *
+ * Este programa é distribuído na esperança de que possa ser útil, mas SEM NENHUMA GARANTIA; sem uma garantia 
+ * implícita de ADEQUAÇÃO a qualquer MERCADO ou APLICAÇÃO EM PARTICULAR. Veja a Licença Pública Geral GNU
+ * para maiores detalhes.
  */
 package tempo;
 
@@ -43,7 +49,7 @@ public enum Dias {
     DIA_30("Trinta"),
     DIA_31("Trinta e um");
 
-    private String nome;
+    private final String nome;
 
     Dias(String nome) {
         this.nome = nome;
@@ -55,6 +61,5 @@ public enum Dias {
     public String getNome() {
         return this.nome;
     }
-    
-    
+
 }

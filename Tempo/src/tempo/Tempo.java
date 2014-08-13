@@ -59,4 +59,46 @@ public class Tempo {
 
     }
 
+    /**
+     * @return o objeto Calendar
+     */
+    public Calendar getCALENDARIO() {
+        return CALENDARIO;
+    }
+
+    /**
+     * @return a o objeto Date
+     */
+    public Date getDATA() {
+        return DATA;
+    }
+
+    /**
+     * @return a zona
+     */
+    public TimeZone getZona() {
+        return zona;
+    }
+
+    /**
+     * @param zona a zona que deseja definir
+     */
+    public void setZona(TimeZone zona) {
+        this.zona = zona;
+    }
+
+    /**
+     * @return o local
+     */
+    public Locale getLocal() {
+        return local;
+    }
+
+    /**
+     * @param local o local que deseja definir
+     */
+    public void setLocal(Locale local) {
+        this.local = local;
+    }
+
 }
