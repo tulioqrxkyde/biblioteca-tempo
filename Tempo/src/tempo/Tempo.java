@@ -93,14 +93,68 @@ public class Tempo {
     }
 
     /**
-     * @return o objeto Calendar
+     * 
+     * @return o dia atual da semana em formato numérico:
+     * 
+     * ( Domingo / Sunday         - > 1 )
+     * ( Segunda-feira / Monday   - > 2 )
+     * ( Terça-feira / Tuesday    - > 3 )
+     * ( Quarta-feira / Wednesday - > 4 )
+     * ( Quinta-feira / Thursday  - > 5 )
+     * ( Sexta-feira / Friday     - > 6 )
+     * ( Sábado / Saturday        - > 7 )
+     */
+    public Integer getDiaAtualSemana() {
+        return CALENDARIO.get(Calendar.DAY_OF_WEEK);
+    }
+
+    /**
+     * 
+     * @return o dia atual do mês em formato numérico
+     */
+    public Integer getDiaAtualMes() {
+        return CALENDARIO.get(Calendar.DAY_OF_MONTH);
+    }
+
+    /**
+     * 
+     * @return o mês atual em formato numérico:
+     * 
+     * ( Janeiro / January       - > 1 )
+     * ( Fevereiro / February    - > 2 )
+     * ( Março / March           - > 3 )
+     * ( Abril / April           - > 4 )
+     * ( Maio / May              - > 5 )
+     * ( Junho / June            - > 6 )
+     * ( Julho / July            - > 7 )
+     * ( Agosto / August         - > 8 )
+     * ( Setembro / September    - > 9 )
+     * ( Outubro / October       - > 10 )
+     * ( Novembro / November     - > 11 )
+     * ( Dezembro / December     - > 12 )
+     * 
+     */
+    public Integer getMesAtual() {
+        return CALENDARIO.get(Calendar.MONTH);
+    }
+
+    /**
+     * 
+     * @return o ano atual em formato numérico
+     */
+    public Integer getAnoAtual() {
+        return CALENDARIO.get(Calendar.YEAR);
+    }
+
+    /**
+     * @return um objeto Calendar
      */
     public Calendar getCALENDARIO() {
         return CALENDARIO;
     }
 
     /**
-     * @return a o objeto Date
+     * @return um objeto Date
      */
     public Date getDATA() {
         return DATA;
@@ -114,7 +168,7 @@ public class Tempo {
     }
 
     /**
-     * @param zona a zona que deseja definir
+     * @param zona que deseja definir
      */
     public void setZona(TimeZone zona) {
         this.zona = zona;
@@ -128,7 +182,7 @@ public class Tempo {
     }
 
     /**
-     * @param local o local que deseja definir
+     * @param local que deseja definir
      */
     public void setLocal(Locale local) {
         this.local = local;
