@@ -43,9 +43,9 @@ public class Tempo {
     }
 
     /**
-     * 
+     *
      * @param zona
-     * @param local 
+     * @param local
      */
     public Tempo(TimeZone zona, Locale local) {
         this.zona = zona;
@@ -57,6 +57,39 @@ public class Tempo {
      */
     public Tempo() {
 
+    }
+
+    /**
+     *
+     * @param dia
+     *
+     * Recebe um dia como parâmetro e seta o dia como sendo o atual ao
+     * Calendário.
+     */
+    public void setDia(Integer dia) {
+        CALENDARIO.set(Calendar.DAY_OF_MONTH, dia);
+    }
+
+    /**
+     *
+     * @param mes
+     *
+     * Recebe um mês como parâmetro e seta o mês como sendo o atual ao
+     * Calendário.
+     */
+    public void setMes(Integer mes) {
+        CALENDARIO.set(Calendar.MONTH, mes);
+    }
+
+    /**
+     *
+     * @param ano
+     *
+     * Recebe um ano como parâmetro e seta o ano como sendo o atual ao
+     * Calendário.
+     */
+    public void setAno(Integer ano) {
+        CALENDARIO.set(Calendar.YEAR, ano);
     }
 
     /**
