@@ -49,17 +49,17 @@ public enum Dias {
     DIA_30("Trinta"),
     DIA_31("Trinta e um");
 
-    private final String nome;
+    private final String NOME;
 
     Dias(String nome) {
-        this.nome = nome;
+        this.NOME = nome;
     }
 
     /**
-     * @return the nome
+     * @return o nome
      */
     public String getNome() {
-        return this.nome;
+        return this.NOME;
     }
 
 }

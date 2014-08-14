@@ -1,4 +1,4 @@
-/* Este arquivo é parte da API Tempo.
+/* Este arquivo é parte da Biblioteca Tempo.
  * Copyright (C) 2014 (Túlio Vidal - tulio.xcrtf).
  *
  * Este projeto é um software livre; você pode redistribuí-lo e/ou  modificá-lo dentro dos termos da 
@@ -28,6 +28,9 @@ public class Tempo implements Comparable<Tempo> {
     private final SimpleDateFormat S_DATA = new SimpleDateFormat();
     private TimeZone zona;
     private Locale local;
+    private Integer segundo;
+    private Integer minuto;
+    private Integer hora;
     private Integer dia;
     private Integer mes;
     private Integer ano;
@@ -62,10 +65,40 @@ public class Tempo implements Comparable<Tempo> {
     }
 
     /**
+     * @param segundo
+     *
+     * Recebe um valor de segundo como parâmetro e seta o segundo como sendo o atual ao
+     * objeto Calendário.
+     */
+    public void setSegundo(Integer segundo) {
+        CALENDARIO.set(Calendar.SECOND, segundo);
+    }
+    
+    /**
+     * @param minuto
+     *
+     * Recebe um valor de minuto como parâmetro e seta o minuto como sendo o atual ao
+     * objeto Calendário.
+     */
+    public void setMinuto(Integer minuto) {
+        CALENDARIO.set(Calendar.MINUTE, minuto);
+    }
+    
+    /**
+     * @param hora
+     *
+     * Recebe um valor de hora como parâmetro e seta a hora como sendo a atual ao
+     * objeto Calendário.
+     */
+    public void setHora(Integer hora) {
+        CALENDARIO.set(Calendar.HOUR_OF_DAY, hora);
+    }
+    
+    /**
      * @param dia
      *
      * Recebe um dia como parâmetro e seta o dia como sendo o atual ao
-     * Calendário.
+     * objeto Calendário.
      */
     public void setDia(Integer dia) {
         CALENDARIO.set(Calendar.DAY_OF_MONTH, dia);
@@ -75,7 +108,7 @@ public class Tempo implements Comparable<Tempo> {
      * @param mes
      *
      * Recebe um mês como parâmetro e seta o mês como sendo o atual ao
-     * Calendário.
+     * objeto Calendário.
      */
     public void setMes(Integer mes) {
         CALENDARIO.set(Calendar.MONTH, mes);
@@ -85,10 +118,52 @@ public class Tempo implements Comparable<Tempo> {
      * @param ano
      *
      * Recebe um ano como parâmetro e seta o ano como sendo o atual ao
-     * Calendário.
+     * objeto Calendário.
      */
     public void setAno(Integer ano) {
         CALENDARIO.set(Calendar.YEAR, ano);
+    }
+    
+    /**
+     * @return o segundo atual em formato numérico
+     */
+    public Integer getSegundoAtual() {
+        return CALENDARIO.get(Calendar.SECOND);
+    }
+    
+    /**
+     * @return o segundo atual em formato texto
+     */
+    public String getSegundoAtualExtenso() {
+        return MinSegs.valueOf("MINSEGS_".concat((String.valueOf(CALENDARIO.get(Calendar.SECOND))))).getMINSEGS();
+    }
+    
+    /**
+     * @return o minuto atual em formato numérico
+     */
+    public Integer getMinutoAtual() {
+        return CALENDARIO.get(Calendar.MINUTE);
+    }
+    
+    /**
+     * @return o minuto atual em formato texto
+     */
+    public String getMinutoAtualExtenso() {
+        return MinSegs.valueOf("MINSEGS_".concat((String.valueOf(CALENDARIO.get(Calendar.MINUTE))))).getMINSEGS();
+    }
+    
+    /**
+     * @return a hora atual em formato numérico
+     */
+    public Integer getHoraAtual() {
+        return CALENDARIO.get(Calendar.HOUR);
+    }
+    
+    /**
+     * @return a hora atual em formato texto
+     */
+    public String getHoraAtualExtenso() {
+        return MinSegs.valueOf("MINSEGS_".concat((String.valueOf(CALENDARIO.get(Calendar.HOUR_OF_DAY))))).getMINSEGS();
     }
 
     /**
@@ -155,7 +230,6 @@ public class Tempo implements Comparable<Tempo> {
      */
     public String getDiaAtualMesExtenso() {
         return Dias.valueOf("DIA_".concat((String.valueOf(CALENDARIO.get(Calendar.DAY_OF_MONTH))))).getNome();
-
     }
     
     /**
