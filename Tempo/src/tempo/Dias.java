@@ -1,4 +1,4 @@
-/* Este arquivo é parte da API Tempo.
+/* Este arquivo é parte da Biblioteca Tempo.
  * Copyright (C) 2014 (Túlio Vidal - tulio.xcrtf).
  *
  * Este projeto é um software livre; você pode redistribuí-lo e/ou  modificá-lo dentro dos termos da 
