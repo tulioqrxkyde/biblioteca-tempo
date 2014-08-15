@@ -135,7 +135,7 @@ public class Tempo implements Comparable<Tempo> {
      * @return o segundo atual em formato texto
      */
     public String getSegundoAtualExtenso() {
-        return MinSegs.valueOf("MINSEGS_".concat((String.valueOf(CALENDARIO.get(Calendar.SECOND))))).getMINSEGS();
+        return Values.valueOf("VALUES_".concat((String.valueOf(CALENDARIO.get(Calendar.SECOND))))).getVALOR();
     }
     
     /**
@@ -149,7 +149,7 @@ public class Tempo implements Comparable<Tempo> {
      * @return o minuto atual em formato texto
      */
     public String getMinutoAtualExtenso() {
-        return MinSegs.valueOf("MINSEGS_".concat((String.valueOf(CALENDARIO.get(Calendar.MINUTE))))).getMINSEGS();
+        return Values.valueOf("VALUES_".concat((String.valueOf(CALENDARIO.get(Calendar.MINUTE))))).getVALOR();
     }
     
     /**
@@ -163,7 +163,7 @@ public class Tempo implements Comparable<Tempo> {
      * @return a hora atual em formato texto
      */
     public String getHoraAtualExtenso() {
-        return MinSegs.valueOf("MINSEGS_".concat((String.valueOf(CALENDARIO.get(Calendar.HOUR_OF_DAY))))).getMINSEGS();
+        return Values.valueOf("VALUES_".concat((String.valueOf(CALENDARIO.get(Calendar.HOUR_OF_DAY))))).getVALOR();
     }
 
     /**
@@ -229,7 +229,7 @@ public class Tempo implements Comparable<Tempo> {
      * @return o dia atual do mês em formato texto
      */
     public String getDiaAtualMesExtenso() {
-        return Dias.valueOf("DIA_".concat((String.valueOf(CALENDARIO.get(Calendar.DAY_OF_MONTH))))).getNome();
+        return Values.valueOf("VALUES_".concat((String.valueOf(CALENDARIO.get(Calendar.DAY_OF_MONTH))))).getVALOR();
     }
     
     /**
