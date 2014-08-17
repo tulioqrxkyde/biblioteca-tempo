@@ -14,7 +14,8 @@ import javax.swing.Timer;
  */
 public class Relogio extends JFrame {
 
-    JLabel horario, data;
+    private JLabel horario, data;
+    private Tempo t;
 
     /**
      * Construtor default - define os componentes e inicializa o frame.
@@ -43,14 +44,15 @@ public class Relogio extends JFrame {
     
     public Relogio(Tempo t) {
         this();
+        this.t = t;
     }
 
     /**
      * Método de exibição do horário & data.
      */
     private void showTime() {
-        /* Utilizando o objeto Tempo */
-        Tempo t = new Tempo();
+        /* Criando o objeto Tempo */
+        t = new Tempo();
         /* Obtendo: dia, mês, ano, hora, minuto e segundo. */
         data.setText(t.getDiaAtualMes() + "/"
                 + (t.getMesAtual() + 1) + "/" + t.getAnoAtual());
