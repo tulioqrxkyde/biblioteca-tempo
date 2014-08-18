@@ -44,7 +44,6 @@ public class Relogio extends JFrame {
     
     public Relogio(Tempo t) {
         this();
-        this.t = t;
     }
 
     /**

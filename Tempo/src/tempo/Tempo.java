@@ -156,7 +156,7 @@ public class Tempo implements Comparable<Tempo> {
      * @return a hora atual em formato numérico
      */
     public Integer getHoraAtual() {
-        return CALENDARIO.get(Calendar.HOUR);
+        return CALENDARIO.get(Calendar.HOUR_OF_DAY);
     }
     
     /**
@@ -238,6 +238,36 @@ public class Tempo implements Comparable<Tempo> {
     public String getMesAtualExtenso() {
         S_DATA.applyPattern("MMMMM");
         return S_DATA.format(DATA);
+    }
+    
+    /**
+     * Valores de parâmetro / Param values:
+     * 0 -> Brasil / Nacionais
+     * 1 -> 
+     * 2 -> 
+     * 3 -> 
+     * 4 -> 
+     * 5 -> 
+     * 6 -> Ceará
+     *
+     * @param uf 
+     * @return um Object[][][] contendo feriados e suas informações
+     */
+    public Object[][][] getFeriadosEstadual(int uf) {
+            switch(uf) {
+                case 0:
+                    return Feriados.NACIONAL.getFeriados();
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                case 6:
+                    return Feriados.CEARA.getFeriados();
+                default:
+                    break;
+            }
+       return new Object[][][]{{{}}};
     }
 
     /**
@@ -324,5 +354,10 @@ public class Tempo implements Comparable<Tempo> {
         }
         else
             return -1;
+    }
+    
+    public static void main(String[] args) {
+        Tempo t = new Tempo();
+        System.out.println(t.getFeriadosEstadual(6)[0][0][0]);
     }
 }
