@@ -59,6 +59,135 @@ public enum Feriados {
         }
     }),
     
+    ACRE(new Object[][][]{
+        {
+            {
+                "Dia do evangélico",
+                "Dia Internacional da Mulher",
+                "Aniversário do Acre",
+                "Início da Revolução Acriana",
+                "Dia da Amazônia",
+                "Assinatura do Tratado Petrópolis"
+            }
+        },
+        {
+            {
+                23,
+                8,
+                15,
+                6,
+                5,
+                17
+            }
+        },
+        {
+            {
+                1,
+                3,
+                6,
+                8,
+                9,
+                11
+            }
+        }
+    }),
+    
+    ALAGOAS(new Object[][][]{
+        {
+            {
+                "São João",
+                "São Pedro",
+                "Emancipação política de Alagoas",
+                "Consciência Negra"
+            }
+        },
+        {
+            {
+                24,
+                29,
+                16,
+                20
+            }
+        },
+        {
+            {
+                6,
+                6,
+                9,
+                11
+            }
+        }
+    }),
+    
+    AMAPA(new Object[][][]{
+        {
+            {
+                "São José",
+                "Criação do estado",
+                "São Tiago",
+                "Consciência Negra"
+            }
+        },
+        {
+            {
+                19,
+                5,
+                25,
+                20
+            }
+        },
+        {
+            {
+                3,
+                10,
+                7,
+                11
+            }
+        }
+    }),
+    
+    AMAZONAS(new Object[][][]{
+        {
+            {
+                "Elevação do Amazonas à categoria de província",
+                "Dia de Nossa Senhora da Conceição",
+                "Consciência Negra"
+            }
+        },
+        {
+            {
+                5,
+                8,
+                20
+            }
+        },
+        {
+            {
+                9,
+                12,
+                11
+            }
+        }
+    }),
+    
+    BAHIA(new Object[][][]{
+        {
+            {
+                "Independência da Bahia"
+            }
+        },
+        {
+            {
+                2
+            }
+        },
+        {
+            {
+                7
+            }
+        }
+    }),
+    
     CEARA(new Object[][][]{
         {
             {
@@ -88,7 +217,7 @@ public enum Feriados {
 
     /**
      * Descrição: Retorna uma array tridimensional contendo os feriados
-     * 
+     *
      * @return Object[][][]
      */
     public Object[][][] getFeriados() {

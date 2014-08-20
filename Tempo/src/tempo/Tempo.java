@@ -279,15 +279,37 @@ public class Tempo implements Comparable<Tempo> {
     }
 
     /**
-     * Valores de parâmetro / Param values:
-     * 0 -> Brasil / Nacionais
-     * 1 ->
-     * 2 ->
-     * 3 ->
-     * 4 ->
-     * 5 ->
-     * 6 -> Ceará
-     *
+     * 
+     * Unidades Federativas:
+     * 0  -> Brasil / Nacionais (BR)
+     * 1  -> Acre (AC)
+     * 2  -> Alagoas (AL)
+     * 3  -> Amapá (AP)
+     * 4  -> Amazonas (AM)
+     * 5  -> Bahia (BA)
+     * 6  -> Ceará (CE)
+     * 7  -> Distrito Federal (DF)
+     * 8  -> Espírito Santo (ES)
+     * 9  -> Goiás (GO)
+     * 10 -> Maranhão (MA)
+     * 11 -> Mato Grosso (MT)
+     * 12 -> Mato Grosso do Sul (MS)
+     * 13 -> Minas Gerais (MG)
+     * 14 -> Pará (PA)
+     * 15 -> Paraíba (PB)
+     * 16 -> Paraná (PR)
+     * 17 -> Pernambuco (PE)
+     * 18 -> Piauí (PI)
+     * 19 -> Rio de Janeiro (RJ)
+     * 20 -> Rio Grande do Norte (RN)
+     * 21 -> Rio Grande do Sul (RS)
+     * 22 -> Rondônia (RO)
+     * 23 -> Roraima (RR)
+     * 24 -> Santa Catarina (SC)
+     * 25 -> São Paulo (SP)
+     * 26 -> Sergipe (SE)
+     * 27 -> Tocantins (TO)
+     * 
      * @param uf
      * @return um Object[][][] contendo feriados e suas informações
      */
@@ -296,22 +318,56 @@ public class Tempo implements Comparable<Tempo> {
             case 0:
                 return Feriados.NACIONAL.getFeriados();
             case 1:
+                return Feriados.ACRE.getFeriados();
             case 2:
+                return Feriados.ALAGOAS.getFeriados();
             case 3:
+                return Feriados.AMAPA.getFeriados();
             case 4:
+                return Feriados.AMAZONAS.getFeriados();
             case 5:
+                return Feriados.BAHIA.getFeriados();
             case 6:
                 return Feriados.CEARA.getFeriados();
             default:
-                break;
+                return new Object[][][]{{{}}};
         }
-        return new Object[][][]{{{}}};
     }
 
     /**
      * Descrição: Recebe uma UF(Unidade Federativa), um dia e um mês como
      * parâmetros para retornar o feriado que ocorrer aquele dia e aquele mês.
      *
+     * Unidades Federativas:
+     * 0  -> Brasil / Nacionais (BR)
+     * 1  -> Acre (AC)
+     * 2  -> Alagoas (AL)
+     * 3  -> Amapá (AP)
+     * 4  -> Amazonas (AM)
+     * 5  -> Bahia (BA)
+     * 6  -> Ceará (CE)
+     * 7  -> Distrito Federal (DF)
+     * 8  -> Espírito Santo (ES)
+     * 9  -> Goiás (GO)
+     * 10 -> Maranhão (MA)
+     * 11 -> Mato Grosso (MT)
+     * 12 -> Mato Grosso do Sul (MS)
+     * 13 -> Minas Gerais (MG)
+     * 14 -> Pará (PA)
+     * 15 -> Paraíba (PB)
+     * 16 -> Paraná (PR)
+     * 17 -> Pernambuco (PE)
+     * 18 -> Piauí (PI)
+     * 19 -> Rio de Janeiro (RJ)
+     * 20 -> Rio Grande do Norte (RN)
+     * 21 -> Rio Grande do Sul (RS)
+     * 22 -> Rondônia (RO)
+     * 23 -> Roraima (RR)
+     * 24 -> Santa Catarina (SC)
+     * 25 -> São Paulo (SP)
+     * 26 -> Sergipe (SE)
+     * 27 -> Tocantins (TO)
+     * 
      * @param uf
      * @param dia
      * @param mes
@@ -329,9 +385,7 @@ public class Tempo implements Comparable<Tempo> {
         }
         indiceMes = Arrays.binarySearch(Feriados.values()[uf].getFeriados()[2][0], mes);
         if (indiceDia > -1 && indiceMes > -1) {
-            if (indiceDia == indiceMes) {
-                indice = indiceDia;
-            }
+                indice = indiceDia == indiceMes ? indiceMes: indiceDia;
         }
         return ((indice > -1) ? Feriados.values()[uf].getFeriados()[0][0][indice].toString()
                 : null);
