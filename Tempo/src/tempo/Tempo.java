@@ -435,11 +435,38 @@ public class Tempo implements Comparable<Tempo> {
                 : null);
     }
 
-    public String getDia(int a, int m, int d) {
-        S_DATA.applyPattern("EEEEE");
+    /**
+     * Descrição: Recebe por parâmetro ano, mês e dia e retorna o respectivo dia da semana em formato texto.
+     * 
+     * @param a ano
+     * @param m mês
+     * @param d dia
+     * @param pattern padrão (opcional) a se utilizar na formatação do texto
+     * @return dia da semana
+     */
+    public String getDiaSemana(int a, int m, int d, String... pattern) {
+        if(pattern != null) {
+            if(pattern.length > 0) {
+                S_DATA.applyPattern(pattern[0]);
+            }
+        }
+        else {
+            S_DATA.applyPattern("EEEEE");
+        }
         CALENDARIO.set(a, m, d);
         return S_DATA.format(CALENDARIO.getTime());
     }
+    
+    /**
+     * Descrição: Recebe um ano como parâmetro e verifica se o mesmo é bissexto
+     * 
+     * @param ano
+     * @return um booleano
+     */
+    public boolean isBissexto(int ano) {
+        return (((ano % 400 == 0) || (!(ano % 100 == 0) && (ano % 4 == 0))));
+    }
+    
     /**
      * @return um objeto Calendar
      */
@@ -522,11 +549,5 @@ public class Tempo implements Comparable<Tempo> {
         } else {
             return -1;
         }
-    }
-    public static void main(String[] args) {
-        Tempo t = new Tempo();
-        System.out.println(t.getDia(2017, 2, 
-                16));
-        
     }
 }
