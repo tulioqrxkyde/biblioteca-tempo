@@ -359,6 +359,20 @@ public class Tempo implements Comparable<Tempo> {
                 return Feriados.RIO_DE_JANEIRO.getFeriados();
             case 21:
                 return Feriados.RIO_GRANDE_DO_NORTE.getFeriados();
+            case 22:
+                return Feriados.RIO_GRANDE_DO_SUL.getFeriados();
+            case 23:
+                return Feriados.RONDONIA.getFeriados();
+            case 24:
+                return Feriados.RORAIMA.getFeriados();
+            case 25:
+                return Feriados.SANTA_CATARINA.getFeriados();
+            case 26:
+                return Feriados.SAO_PAULO.getFeriados();
+            case 27:
+                return Feriados.SERGIPE.getFeriados();
+            case 28:
+                return Feriados.TOCANTINS.getFeriados();
             default:
                 return new Object[][][]{{{}}};
         }

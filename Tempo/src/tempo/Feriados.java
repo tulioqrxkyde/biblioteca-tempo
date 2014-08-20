@@ -250,6 +250,7 @@ public enum Feriados {
             }
         }
     }),
+
     GOIAS(new Object[][][]{
         {
             {
@@ -481,6 +482,136 @@ public enum Feriados {
             {
                 6,
                 10
+            }
+        }
+    }),
+
+    RIO_GRANDE_DO_SUL(new Object[][][]{
+        {
+            {
+                "Revolução Farroupilha"
+            }
+        },
+        {
+            {
+                20,}
+        },
+        {
+            {
+                9
+            }
+        }
+    }),
+
+    RONDONIA(new Object[][][]{
+        {
+            {
+                "Criação do estado de Rondônia",
+                "Dia do Evangélico"
+            }
+        },
+        {
+            {
+                4,
+                18
+            }
+        },
+        {
+            {
+                1,
+                6
+            }
+        }
+    }),
+
+    RORAIMA(new Object[][][]{
+        {
+            {
+                "Criação de Roraima",}
+        },
+        {
+            {
+                5
+            }
+        },
+        {
+            {
+                10
+            }
+        }
+    }),
+
+    SANTA_CATARINA(new Object[][][]{
+        {
+            {
+                "Criação de Santa Catarina",}
+        },
+        {
+            {
+                11
+            }
+        },
+        {
+            {
+                8
+            }
+        }
+    }),
+
+    SAO_PAULO(new Object[][][]{
+        {
+            {
+                "Revolução Constitucionalista de 1932",}
+        },
+        {
+            {
+                9
+            }
+        },
+        {
+            {
+                7
+            }
+        }
+    }),
+
+    SERGIPE(new Object[][][]{
+        {
+            {
+                "Autonomia política de Sergipe",}
+        },
+        {
+            {
+                8
+            }
+        },
+        {
+            {
+                7
+            }
+        }
+    }),
+
+    TOCANTINS(new Object[][][]{
+        {
+            {
+                "Instalação de Tocantins",
+                "Criação de Tocantins",
+                "Nossa Senhora da Natividade"
+            }
+        },
+        {
+            {
+                1,
+                5,
+                8
+            }
+        },
+        {
+            {
+                1,
+                10,
+                9
             }
         }
     });
