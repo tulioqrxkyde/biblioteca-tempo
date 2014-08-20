@@ -250,7 +250,6 @@ public enum Feriados {
             }
         }
     }),
-
     GOIAS(new Object[][][]{
         {
             {
@@ -341,6 +340,147 @@ public enum Feriados {
         {
             {
                 4
+            }
+        }
+    }),
+
+    PARA(new Object[][][]{
+        {
+            {
+                "Adesão do Grão-Pará à independência do Brasil"
+            }
+        },
+        {
+            {
+                15
+            }
+        },
+        {
+            {
+                8
+            }
+        }
+    }),
+
+    PARAIBA(new Object[][][]{
+        {
+            {
+                "Fundação do Estado"
+            }
+        },
+        {
+            {
+                5
+            }
+        },
+        {
+            {
+                8
+            }
+        }
+    }),
+
+    PARANA(new Object[][][]{
+        {
+            {
+                "Emancipação política do Paraná"
+            }
+        },
+        {
+            {
+                19
+            }
+        },
+        {
+            {
+                12
+            }
+        }
+    }),
+
+    PERNAMBUCO(new Object[][][]{
+        {
+            {
+                "São João"
+            }
+        },
+        {
+            {
+                24
+            }
+        },
+        {
+            {
+                6
+            }
+        }
+    }),
+
+    PIAUI(new Object[][][]{
+        {
+            {
+                "Dia da Batalha do Jenipapo",
+                "Dia do Piauí"
+            }
+        },
+        {
+            {
+                13,
+                19
+            }
+        },
+        {
+            {
+                3,
+                10
+            }
+        }
+    }),
+
+    RIO_DE_JANEIRO(new Object[][][]{
+        {
+            {
+                "Dia de São Jorge",
+                "Dia do Funcionário Público",
+                "Dia de Nossa Senhora da Conceição",
+                "Zumbi dos Palmares"
+            }
+        },
+        {
+            {
+                23,
+                28,
+                8,
+                20
+            }
+        },
+        {
+            {
+                4,
+                10,
+                12,
+                11
+            }
+        }
+    }),
+
+    RIO_GRANDE_DO_NORTE(new Object[][][]{
+        {
+            {
+                "Dia de São Pedro",
+                "Mártires de Cunhaú e Uruaçuu"
+            }
+        },
+        {
+            {
+                29,
+                3
+            }
+        },
+        {
+            {
+                6,
+                10
             }
         }
     });
