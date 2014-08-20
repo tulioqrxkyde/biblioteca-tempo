@@ -417,11 +417,11 @@ public class Tempo implements Comparable<Tempo> {
      * @param mes
      * @return um feriado em formato texto
      */
-    public String getDiaFeriado(Integer uf, Integer dia, Integer mes) {
+    public String getDiaFeriado(int uf, int dia, int mes) {
         int indiceDia = -1, indiceMes, indice = -1, z = 0;
         /* Percorre todos os dias para saber se o dia passado por parâmetro é um feriado. */
         for (Object it : Feriados.values()[uf].getFeriados()[1][0]) {
-            if (dia.equals(Integer.parseInt(it.toString()))) {
+            if (dia == Integer.parseInt(it.toString())) {
                 indiceDia = z;
                 break;
             }
@@ -435,6 +435,11 @@ public class Tempo implements Comparable<Tempo> {
                 : null);
     }
 
+    public String getDia(int a, int m, int d) {
+        S_DATA.applyPattern("EEEEE");
+        CALENDARIO.set(a, m, d);
+        return S_DATA.format(CALENDARIO.getTime());
+    }
     /**
      * @return um objeto Calendar
      */
@@ -517,5 +522,11 @@ public class Tempo implements Comparable<Tempo> {
         } else {
             return -1;
         }
+    }
+    public static void main(String[] args) {
+        Tempo t = new Tempo();
+        System.out.println(t.getDia(2017, 2, 
+                16));
+        
     }
 }
