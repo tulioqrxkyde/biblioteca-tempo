@@ -12,6 +12,7 @@
 package tempo;
 
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
@@ -65,100 +66,100 @@ public class Tempo implements Comparable<Tempo> {
     }
 
     /**
-     * @param segundo
+     * Descrição: Recebe um valor de segundo como parâmetro e seta o segundo
+     * como sendo o atual ao objeto Calendário.
      *
-     * Recebe um valor de segundo como parâmetro e seta o segundo como sendo o atual ao
-     * objeto Calendário.
+     * @param segundo
      */
     public void setSegundo(Integer segundo) {
         CALENDARIO.set(Calendar.SECOND, segundo);
     }
-    
+
     /**
-     * @param minuto
+     * Descrição: Recebe um valor de minuto como parâmetro e seta o minuto como
+     * sendo o atual ao objeto Calendário.
      *
-     * Recebe um valor de minuto como parâmetro e seta o minuto como sendo o atual ao
-     * objeto Calendário.
+     * @param minuto
      */
     public void setMinuto(Integer minuto) {
         CALENDARIO.set(Calendar.MINUTE, minuto);
     }
-    
+
     /**
-     * @param hora
+     * Descrição: Recebe um valor de hora como parâmetro e seta a hora como
+     * sendo a atual ao objeto Calendário.
      *
-     * Recebe um valor de hora como parâmetro e seta a hora como sendo a atual ao
-     * objeto Calendário.
+     * @param hora
      */
     public void setHora(Integer hora) {
         CALENDARIO.set(Calendar.HOUR_OF_DAY, hora);
     }
-    
+
     /**
-     * @param dia
+     * Descrição: Recebe um dia como parâmetro e seta o dia como sendo o atual
+     * ao objeto Calendário.
      *
-     * Recebe um dia como parâmetro e seta o dia como sendo o atual ao
-     * objeto Calendário.
+     * @param dia
      */
     public void setDia(Integer dia) {
         CALENDARIO.set(Calendar.DAY_OF_MONTH, dia);
     }
 
     /**
-     * @param mes
+     * Descrição: Recebe um mês como parâmetro e seta o mês como sendo o atual
+     * ao objeto Calendário.
      *
-     * Recebe um mês como parâmetro e seta o mês como sendo o atual ao
-     * objeto Calendário.
+     * @param mes
      */
     public void setMes(Integer mes) {
         CALENDARIO.set(Calendar.MONTH, mes);
     }
 
     /**
-     * @param ano
+     * Descrição: Recebe um ano como parâmetro e seta o ano como sendo o atual
+     * ao objeto Calendário.
      *
-     * Recebe um ano como parâmetro e seta o ano como sendo o atual ao
-     * objeto Calendário.
+     * @param ano
      */
     public void setAno(Integer ano) {
         CALENDARIO.set(Calendar.YEAR, ano);
     }
-    
+
     /**
      * @return o segundo atual em formato numérico
      */
     public Integer getSegundoAtual() {
         return CALENDARIO.get(Calendar.SECOND);
     }
-    
+
     /**
      * @return o segundo atual em formato texto
      */
     public String getSegundoAtualExtenso() {
         return Values.valueOf("VALUES_".concat((String.valueOf(CALENDARIO.get(Calendar.SECOND))))).getVALOR();
     }
-    
+
     /**
      * @return o minuto atual em formato numérico
      */
     public Integer getMinutoAtual() {
         return CALENDARIO.get(Calendar.MINUTE);
     }
-    
+
     /**
      * @return o minuto atual em formato texto
      */
     public String getMinutoAtualExtenso() {
         return Values.valueOf("VALUES_".concat((String.valueOf(CALENDARIO.get(Calendar.MINUTE))))).getVALOR();
     }
-    
+
     /**
      * @return a hora atual em formato numérico
      */
     public Integer getHoraAtual() {
         return CALENDARIO.get(Calendar.HOUR_OF_DAY);
     }
-    
+
     /**
      * @return a hora atual em formato texto
      */
@@ -167,15 +168,16 @@ public class Tempo implements Comparable<Tempo> {
     }
 
     /**
-     * @return o dia atual da semana em formato numérico:
-     * 
+     *  Descrição: 
      * ( Domingo / Sunday         - > 1 )
      * ( Segunda-feira / Monday   - > 2 )
      * ( Terça-feira / Tuesday    - > 3 )
      * ( Quarta-feira / Wednesday - > 4 )
      * ( Quinta-feira / Thursday  - > 5 )
      * ( Sexta-feira / Friday     - > 6 )
-     * ( Sábado / Saturday        - > 7 )
+     * ( Sábado / Saturday        - > 7 ).
+     * 
+     * @return o dia atual da semana em formato numérico
      */
     public Integer getDiaAtualSemana() {
         return CALENDARIO.get(Calendar.DAY_OF_WEEK);
@@ -190,8 +192,7 @@ public class Tempo implements Comparable<Tempo> {
     }
 
     /**
-     * @return o mês atual em formato numérico:
-     * 
+     * Descrição: 
      * ( Janeiro / January       - > 0 )
      * ( Fevereiro / February    - > 1 )
      * ( Março / March           - > 2 )
@@ -205,6 +206,7 @@ public class Tempo implements Comparable<Tempo> {
      * ( Novembro / November     - > 10 )
      * ( Dezembro / December     - > 11 )
      * 
+     * @return o mês atual em formato numérico:
      */
     public Integer getMesAtual() {
         return CALENDARIO.get(Calendar.MONTH);
@@ -216,7 +218,7 @@ public class Tempo implements Comparable<Tempo> {
     public Integer getAnoAtual() {
         return CALENDARIO.get(Calendar.YEAR);
     }
-    
+
     /**
      * @return o dia atual da semana em formato texto
      */
@@ -231,7 +233,7 @@ public class Tempo implements Comparable<Tempo> {
     public String getDiaAtualMesExtenso() {
         return Values.valueOf("VALUES_".concat((String.valueOf(CALENDARIO.get(Calendar.DAY_OF_MONTH))))).getVALOR();
     }
-    
+
     /**
      * @return o mês atual em formato texto
      */
@@ -239,35 +241,64 @@ public class Tempo implements Comparable<Tempo> {
         S_DATA.applyPattern("MMMMM");
         return S_DATA.format(DATA);
     }
-    
+
     /**
      * Valores de parâmetro / Param values:
      * 0 -> Brasil / Nacionais
-     * 1 -> 
-     * 2 -> 
-     * 3 -> 
-     * 4 -> 
-     * 5 -> 
+     * 1 ->
+     * 2 ->
+     * 3 ->
+     * 4 ->
+     * 5 ->
      * 6 -> Ceará
      *
-     * @param uf 
+     * @param uf
      * @return um Object[][][] contendo feriados e suas informações
      */
     public Object[][][] getFeriadosEstadual(int uf) {
-            switch(uf) {
-                case 0:
-                    return Feriados.NACIONAL.getFeriados();
-                case 1:
-                case 2:
-                case 3:
-                case 4:
-                case 5:
-                case 6:
-                    return Feriados.CEARA.getFeriados();
-                default:
-                    break;
+        switch (uf) {
+            case 0:
+                return Feriados.NACIONAL.getFeriados();
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+            case 5:
+            case 6:
+                return Feriados.CEARA.getFeriados();
+            default:
+                break;
+        }
+        return new Object[][][]{{{}}};
+    }
+
+    /**
+     * Descrição: Recebe uma UF(Unidade Federativa), um dia e um mês como
+     * parâmetros para retornar o feriado que ocorrer aquele dia e aquele mês.
+     *
+     * @param uf
+     * @param dia
+     * @param mes
+     * @return um feriado em formato texto
+     */
+    public String getDiaFeriado(Integer uf, Integer dia, Integer mes) {
+        int indiceDia = -1, indiceMes, indice = -1, z = 0;
+        /* Percorre todos os dias para saber se o dia passado por parâmetro é um feriado. */
+        for (Object it : Feriados.values()[uf].getFeriados()[1][0]) {
+            if (dia.equals(Integer.parseInt(it.toString()))) {
+                indiceDia = z;
+                break;
             }
-       return new Object[][][]{{{}}};
+            z++;
+        }
+        indiceMes = Arrays.binarySearch(Feriados.values()[uf].getFeriados()[2][0], mes);
+        if (indiceDia > -1 && indiceMes > -1) {
+            if (indiceDia == indiceMes) {
+                indice = indiceDia;
+            }
+        }
+        return ((indice > -1) ? Feriados.values()[uf].getFeriados()[0][0][indice].toString()
+                : null);
     }
 
     /**
@@ -314,13 +345,11 @@ public class Tempo implements Comparable<Tempo> {
 
     /**
      * Método toString() sobrescrito.
-     * 
-     * @return uma String em formato dd/MM/yyyy
-     * dd   - > dia
-     * MM   - > mês
-     * yyyy - > ano
+     *
+     * @return uma String em formato dd/MM/yyyy dd - > dia MM - > mês yyyy - >
+     * ano
      */
-   @Override
+    @Override
     public String toString() {
         return "Tempo: " + getDiaAtualMes()
                 + "/" + getMesAtual()
@@ -331,33 +360,27 @@ public class Tempo implements Comparable<Tempo> {
 
     /**
      * Método compareTo sobrescrito.
-     * 
+     *
      * @param t um Tempo
      * @return int
      */
     @Override
     public int compareTo(Tempo t) {
-        if((this.getDiaAtualMes() > t.getDiaAtualMes() && this.getMesAtual() > t.getMesAtual() 
+        if ((this.getDiaAtualMes() > t.getDiaAtualMes() && this.getMesAtual() > t.getMesAtual()
                 && this.getAnoAtual() > t.getAnoAtual())
-                || (this.getDiaAtualMes() > t.getDiaAtualMes() && this.getMesAtual() > t.getMesAtual() 
+                || (this.getDiaAtualMes() > t.getDiaAtualMes() && this.getMesAtual() > t.getMesAtual()
                 && this.getAnoAtual().equals(t.getAnoAtual()))
                 || (this.getDiaAtualMes() > t.getDiaAtualMes() && this.getMesAtual().equals(t.getMesAtual())
                 && this.getAnoAtual().equals(t.getAnoAtual()))
                 || (this.getMesAtual() > t.getMesAtual() && this.getAnoAtual() > t.getAnoAtual())
                 || (this.getAnoAtual() > t.getAnoAtual())) {
-          return 1;
-        }
-        else if(this.getDiaAtualMes().equals(t.getDiaAtualMes())
+            return 1;
+        } else if (this.getDiaAtualMes().equals(t.getDiaAtualMes())
                 && this.getMesAtual().equals(t.getMesAtual())
                 && this.getAnoAtual().equals(t.getAnoAtual())) {
             return 0;
-        }
-        else
+        } else {
             return -1;
-    }
-    
-    public static void main(String[] args) {
-        Tempo t = new Tempo();
-        System.out.println(t.getFeriadosEstadual(6)[0][0][0]);
+        }
     }
 }
