@@ -37,6 +37,52 @@ public class Tempo implements Comparable<Tempo> {
     private Integer ano;
 
     /**
+     * 
+     * @param minuto
+     * @param hora 
+     */
+    public Tempo(Integer hora, Integer minuto) {
+        this.minuto = minuto;
+        this.hora = hora;
+        setHora(hora);
+        setMinuto(minuto);
+    }
+    
+    /**
+     *
+     * @param zona
+     * @param local
+     */
+    public Tempo(TimeZone zona, Locale local) {
+        this.zona = zona;
+        this.local = local;
+    }
+
+    /**
+     * 
+     * @param ano
+     * @param mes
+     * @param dia
+     * @param hora
+     * @param minuto
+     * @param segundo 
+     */
+    public Tempo(Integer ano, Integer mes, Integer dia, Integer hora, Integer minuto, Integer segundo) {
+        this.ano = ano;
+        this.mes = mes;
+        this.dia = dia;
+        this.hora = hora;
+        this.minuto = minuto;
+        this.segundo = segundo;
+        setAno(ano);
+        setMes(mes);
+        setDia(dia);
+        setHora(hora);
+        setMinuto(minuto);
+        setSegundo(segundo);
+    }
+
+    /**
      *
      * @param dia
      * @param mes
@@ -46,16 +92,6 @@ public class Tempo implements Comparable<Tempo> {
         this.dia = dia;
         this.mes = mes;
         this.ano = ano;
-    }
-
-    /**
-     *
-     * @param zona
-     * @param local
-     */
-    public Tempo(TimeZone zona, Locale local) {
-        this.zona = zona;
-        this.local = local;
     }
 
     /**
@@ -373,7 +409,8 @@ public class Tempo implements Comparable<Tempo> {
                 || (this.getDiaAtualMes() > t.getDiaAtualMes() && this.getMesAtual().equals(t.getMesAtual())
                 && this.getAnoAtual().equals(t.getAnoAtual()))
                 || (this.getMesAtual() > t.getMesAtual() && this.getAnoAtual() > t.getAnoAtual())
-                || (this.getAnoAtual() > t.getAnoAtual())) {
+                || (this.getAnoAtual() > t.getAnoAtual())
+                ) {
             return 1;
         } else if (this.getDiaAtualMes().equals(t.getDiaAtualMes())
                 && this.getMesAtual().equals(t.getMesAtual())
