@@ -58,7 +58,7 @@ public enum Feriados {
             }
         }
     }),
-    
+
     ACRE(new Object[][][]{
         {
             {
@@ -91,7 +91,7 @@ public enum Feriados {
             }
         }
     }),
-    
+
     ALAGOAS(new Object[][][]{
         {
             {
@@ -118,7 +118,7 @@ public enum Feriados {
             }
         }
     }),
-    
+
     AMAPA(new Object[][][]{
         {
             {
@@ -145,7 +145,7 @@ public enum Feriados {
             }
         }
     }),
-    
+
     AMAZONAS(new Object[][][]{
         {
             {
@@ -169,7 +169,7 @@ public enum Feriados {
             }
         }
     }),
-    
+
     BAHIA(new Object[][][]{
         {
             {
@@ -187,7 +187,7 @@ public enum Feriados {
             }
         }
     }),
-    
+
     CEARA(new Object[][][]{
         {
             {
@@ -207,12 +207,148 @@ public enum Feriados {
                 3
             }
         }
+    }),
+
+    DISTRITO_FEDERAL(new Object[][][]{
+        {
+            {
+                "Fundação de Brasília",
+                "Dia do Evangélico"
+            }
+        },
+        {
+            {
+                21,
+                30
+            }
+        },
+        {
+            {
+                4,
+                11
+            }
+        }
+    }),
+
+    ESPIRITO_SANTO(new Object[][][]{
+        {
+            {
+                "Colonização do Solo Espírito-santense",
+                "Dia do Servidor Público"
+            }
+        },
+        {
+            {
+                23,
+                28
+            }
+        },
+        {
+            {
+                5,
+                10
+            }
+        }
+    }),
+
+    GOIAS(new Object[][][]{
+        {
+            {
+                "Dia do Servidor Público"
+            }
+        },
+        {
+            {
+                28
+            }
+        },
+        {
+            {
+                10
+            }
+        }
+    }),
+
+    MARANHAO(new Object[][][]{
+        {
+            {
+                "Adesão do Maranhão à independência do Brasil",
+                "Dia de Nossa Senhora da Conceição"
+            }
+        },
+        {
+            {
+                28,
+                8
+            }
+        },
+        {
+            {
+                7,
+                12
+            }
+        }
+    }),
+
+    MATO_GROSSO(new Object[][][]{
+        {
+            {
+                "Consciência Negra",
+                "Dia de Nossa Senhora da Conceição"
+            }
+        },
+        {
+            {
+                20
+            }
+        },
+        {
+            {
+                11
+            }
+        }
+    }),
+
+    MATO_GROSSO_DO_SUL(new Object[][][]{
+        {
+            {
+                "Criação do Estado"
+            }
+        },
+        {
+            {
+                11
+            }
+        },
+        {
+            {
+                10
+            }
+        }
+    }),
+
+    MINAS_GERAIS(new Object[][][]{
+        {
+            {
+                "Data Magna de Minas Gerais"
+            }
+        },
+        {
+            {
+                21
+            }
+        },
+        {
+            {
+                4
+            }
+        }
     });
 
-    private final Object[][][] feriados;
+    private final Object[][][] FERIADOS;
 
     Feriados(Object[][][] feriados) {
-        this.feriados = feriados;
+        this.FERIADOS = feriados;
     }
 
     /**
@@ -221,6 +357,6 @@ public enum Feriados {
      * @return Object[][][]
      */
     public Object[][][] getFeriados() {
-        return feriados;
+        return FERIADOS;
     }
 }
