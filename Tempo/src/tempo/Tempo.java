@@ -436,8 +436,9 @@ public class Tempo implements Comparable<Tempo> {
     }
 
     /**
-     * Descrição: Recebe por parâmetro ano, mês e dia e retorna o respectivo dia da semana em formato texto.
-     * 
+     * Descrição: Recebe por parâmetro ano, mês e dia e retorna o respectivo dia
+     * da semana em formato texto.
+     *
      * @param a ano
      * @param m mês
      * @param d dia
@@ -445,28 +446,95 @@ public class Tempo implements Comparable<Tempo> {
      * @return dia da semana
      */
     public String getDiaSemana(int a, int m, int d, String... pattern) {
-        if(pattern != null) {
-            if(pattern.length > 0) {
+        if (pattern != null) {
+            if (pattern.length > 0) {
                 S_DATA.applyPattern(pattern[0]);
             }
-        }
-        else {
+        } else {
             S_DATA.applyPattern("EEEEE");
         }
         CALENDARIO.set(a, m, d);
         return S_DATA.format(CALENDARIO.getTime());
     }
-    
+
     /**
      * Descrição: Recebe um ano como parâmetro e verifica se o mesmo é bissexto
-     * 
+     *
      * @param ano
      * @return um booleano
      */
     public boolean isBissexto(int ano) {
         return (((ano % 400 == 0) || (!(ano % 100 == 0) && (ano % 4 == 0))));
     }
-    
+
+    /**
+     * Descrição: Recebe um ano por parâmetro em formato numérico e o retorna em
+     * formato texto
+     *
+     * @param ano valor entre (-9999 a +9999)
+     * @return um ano por extenso
+     */
+    public String getAnoExtenso(int ano) {
+        String s = String.valueOf(ano);
+        final String CONJUNCAO_E = " e ", CONJUNCAO_MIL = " mil ", CONJUNCAO_MEN = "Menos ", CONJUNCAO_M = "m",
+                STR_C = "Cento";
+        StringBuilder sb = new StringBuilder();
+
+        try {
+            if (ano < -9999 || ano > 9999) {
+                throw new IllegalArgumentException();
+            }
+
+            if (Integer.signum(ano) == -1) {
+                sb.insert(0, CONJUNCAO_MEN);
+                s = String.valueOf(Math.abs(ano));
+            }
+
+            switch (s.length()) {
+                case 1:
+                case 2:
+                    sb.append(Values.values()[Integer.parseInt(s)].getVALOR()).toString();
+                    break;
+                case 3:
+                    if (s.charAt(0) != '0') {
+                        sb.append(Values.values()[Integer.parseInt(String.valueOf(s.charAt(0))) + 99].getVALOR()).toString();
+                        if (!s.substring(1).equals("00")) {
+                            sb.append(CONJUNCAO_E);
+                            sb.append(Values.values()[Integer.parseInt(s.substring(1))].getVALOR());
+                        } else {
+                            sb.delete(2, sb.length());
+                            sb.append("m");
+                        }
+                        break;
+                    }
+                case 4:
+                    if (s.charAt(0) != '0') {
+                        sb.append(Values.values()[Integer.parseInt(String.valueOf(s.charAt(0)))].getVALOR()).toString();
+                        sb.append(CONJUNCAO_MIL);
+                    }
+                    if (s.charAt(1) != '0') {
+                        sb.append(CONJUNCAO_E);
+                        sb.append(Values.values()[Integer.parseInt(String.valueOf(s.charAt(1))) + 99].getVALOR());
+                    }
+                    if (!s.substring(2).equals("00")) {
+                        sb.delete(sb.toString().indexOf(CONJUNCAO_E), sb.toString().indexOf(CONJUNCAO_E) + 3);
+                        sb.append(CONJUNCAO_E);
+                        sb.append(Values.values()[Integer.parseInt(s.substring(2))].getVALOR());
+                    } else if (sb.toString().contains(STR_C)) {
+                        sb.insert(sb.toString().indexOf(STR_C) + 5, CONJUNCAO_M);
+                        sb.delete(sb.toString().indexOf(STR_C) + 2, sb.toString().indexOf(STR_C) + 5);
+                        sb.replace(sb.indexOf("  "), sb.indexOf("  ") + 1, "");
+                    }
+                    break;
+                default:
+                    return "";
+            }
+        } catch (IllegalArgumentException iE) {
+            throw new IllegalArgumentException("Insira um número entre -9999 e +9999");
+        }
+        return sb.toString();
+    }
+
     /**
      * @return um objeto Calendar
      */
@@ -539,8 +607,7 @@ public class Tempo implements Comparable<Tempo> {
                 || (this.getDiaAtualMes() > t.getDiaAtualMes() && this.getMesAtual().equals(t.getMesAtual())
                 && this.getAnoAtual().equals(t.getAnoAtual()))
                 || (this.getMesAtual() > t.getMesAtual() && this.getAnoAtual() > t.getAnoAtual())
-                || (this.getAnoAtual() > t.getAnoAtual())
-                ) {
+                || (this.getAnoAtual() > t.getAnoAtual())) {
             return 1;
         } else if (this.getDiaAtualMes().equals(t.getDiaAtualMes())
                 && this.getMesAtual().equals(t.getMesAtual())
@@ -549,5 +616,9 @@ public class Tempo implements Comparable<Tempo> {
         } else {
             return -1;
         }
+    }
+    public static void main(String[] args) {
+        Tempo t = new Tempo();
+        System.out.println(t.getAnoExtenso(-10));
     }
 }

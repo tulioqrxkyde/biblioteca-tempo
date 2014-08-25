@@ -293,8 +293,7 @@ public enum Feriados {
     MATO_GROSSO(new Object[][][]{
         {
             {
-                "Consciência Negra",
-                "Dia de Nossa Senhora da Conceição"
+                "Consciência Negra"
             }
         },
         {
@@ -494,7 +493,8 @@ public enum Feriados {
         },
         {
             {
-                20,}
+                20
+            }
         },
         {
             {
@@ -527,7 +527,8 @@ public enum Feriados {
     RORAIMA(new Object[][][]{
         {
             {
-                "Criação de Roraima",}
+                "Criação de Roraima"
+            }
         },
         {
             {
@@ -544,7 +545,8 @@ public enum Feriados {
     SANTA_CATARINA(new Object[][][]{
         {
             {
-                "Criação de Santa Catarina",}
+                "Criação de Santa Catarina"
+            }
         },
         {
             {
@@ -561,7 +563,8 @@ public enum Feriados {
     SAO_PAULO(new Object[][][]{
         {
             {
-                "Revolução Constitucionalista de 1932",}
+                "Revolução Constitucionalista de 1932"
+            }
         },
         {
             {
@@ -578,7 +581,8 @@ public enum Feriados {
     SERGIPE(new Object[][][]{
         {
             {
-                "Autonomia política de Sergipe",}
+                "Autonomia política de Sergipe"
+            }
         },
         {
             {
