@@ -229,23 +229,23 @@ public class Tempo implements Comparable<Tempo> {
 
     /**
      * Descrição: 
-     * ( Janeiro / January       - > 0 )
-     * ( Fevereiro / February    - > 1 )
-     * ( Março / March           - > 2 )
-     * ( Abril / April           - > 3 )
-     * ( Maio / May              - > 4 )
-     * ( Junho / June            - > 5 )
-     * ( Julho / July            - > 6 )
-     * ( Agosto / August         - > 7 )
-     * ( Setembro / September    - > 8 )
-     * ( Outubro / October       - > 9 )
-     * ( Novembro / November     - > 10 )
-     * ( Dezembro / December     - > 11 )
+     * ( Janeiro / January       - > 1 )
+     * ( Fevereiro / February    - > 2 )
+     * ( Março / March           - > 3 )
+     * ( Abril / April           - > 4 )
+     * ( Maio / May              - > 5 )
+     * ( Junho / June            - > 6 )
+     * ( Julho / July            - > 7 )
+     * ( Agosto / August         - > 8 )
+     * ( Setembro / September    - > 9 )
+     * ( Outubro / October       - > 10 )
+     * ( Novembro / November     - > 11 )
+     * ( Dezembro / December     - > 12 )
      * 
-     * @return o mês atual em formato numérico:
+     * @return o mês atual em formato numérico
      */
     public Integer getMesAtual() {
-        return CALENDARIO.get(Calendar.MONTH);
+        return CALENDARIO.get(Calendar.MONTH)+1;
     }
 
     /**
@@ -580,16 +580,22 @@ public class Tempo implements Comparable<Tempo> {
     /**
      * Método toString() sobrescrito.
      *
-     * @return uma String em formato dd/MM/yyyy dd - > dia MM - > mês yyyy - >
-     * ano
+     * @return uma String em formato HH:mm:ss - dd/MM/yyyy 
+     * HH - > hora
+     * mm - > minuto
+     * ss - > segundo
+     * dd - > dia
+     * MM - > mês
+     * yyyy - > ano
      */
     @Override
     public String toString() {
-        return "Tempo: " + getDiaAtualMes()
+        return "Tempo: " + getHoraAtual()
+                + ":" + getMinutoAtual()
+                + ":" + getSegundoAtual()
+                + " - " + getDiaAtualMes()
                 + "/" + getMesAtual()
-                + "/" + getAnoAtual()
-                + " " + getDATA()
-                + "";
+                + "/" + getAnoAtual();
     }
 
     /**
@@ -600,25 +606,7 @@ public class Tempo implements Comparable<Tempo> {
      */
     @Override
     public int compareTo(Tempo t) {
-        if ((this.getDiaAtualMes() > t.getDiaAtualMes() && this.getMesAtual() > t.getMesAtual()
-                && this.getAnoAtual() > t.getAnoAtual())
-                || (this.getDiaAtualMes() > t.getDiaAtualMes() && this.getMesAtual() > t.getMesAtual()
-                && this.getAnoAtual().equals(t.getAnoAtual()))
-                || (this.getDiaAtualMes() > t.getDiaAtualMes() && this.getMesAtual().equals(t.getMesAtual())
-                && this.getAnoAtual().equals(t.getAnoAtual()))
-                || (this.getMesAtual() > t.getMesAtual() && this.getAnoAtual() > t.getAnoAtual())
-                || (this.getAnoAtual() > t.getAnoAtual())) {
-            return 1;
-        } else if (this.getDiaAtualMes().equals(t.getDiaAtualMes())
-                && this.getMesAtual().equals(t.getMesAtual())
-                && this.getAnoAtual().equals(t.getAnoAtual())) {
-            return 0;
-        } else {
-            return -1;
-        }
-    }
-    public static void main(String[] args) {
-        Tempo t = new Tempo();
-        System.out.println(t.getAnoExtenso(-10));
+        long tempo = this.CALENDARIO.getTimeInMillis(), tempo2 = t.CALENDARIO.getTimeInMillis();
+        return ((tempo > tempo2) ? 1 : ((tempo == tempo2)) ? 0 : -1);
     }
 }
