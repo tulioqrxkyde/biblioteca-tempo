@@ -9,7 +9,7 @@
  * implícita de ADEQUAÇÃO a qualquer MERCADO ou APLICAÇÃO EM PARTICULAR. Veja a Licença Pública Geral GNU
  * para maiores detalhes.
  */
-package tempo;
+package tempo.biblioteca.tempo;
 
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
@@ -17,6 +17,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 import java.util.TimeZone;
+import tempo.biblioteca.enums.Values;
+import tempo.biblioteca.enums.Feriados;
 
 /**
  *

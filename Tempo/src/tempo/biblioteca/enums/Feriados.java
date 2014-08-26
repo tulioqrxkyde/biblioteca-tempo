@@ -9,7 +9,7 @@
  * implícita de ADEQUAÇÃO a qualquer MERCADO ou APLICAÇÃO EM PARTICULAR. Veja a Licença Pública Geral GNU
  * para maiores detalhes.
  */
-package tempo;
+package tempo.biblioteca.enums;
 
 /**
  *

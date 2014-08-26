@@ -1,5 +1,6 @@
-package tempo;
+package tempo.biblioteca.demo;
 
+import tempo.biblioteca.tempo.Tempo;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -54,7 +55,7 @@ public class Relogio extends JFrame {
         t = new Tempo();
         /* Obtendo: dia, mês, ano, hora, minuto e segundo. */
         data.setText(t.getDiaAtualMes() + "/"
-                + (t.getMesAtual() + 1) + "/" + t.getAnoAtual());
+                + t.getMesAtual() + "/" + t.getAnoAtual());
         horario.setText(t.getHoraAtual() + ":" + t.getMinutoAtual() + ":" + t.getSegundoAtual());
     }
 
