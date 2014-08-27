@@ -11,6 +11,8 @@
  */
 package tempo.biblioteca.tempo;
 
+import tempo.biblioteca.interfaces.Data;
+import tempo.biblioteca.interfaces.Hora;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Calendar;
@@ -24,7 +26,7 @@ import tempo.biblioteca.enums.Feriados;
  *
  * @author tulio.xcrtf
  */
-public class Tempo implements Comparable<Tempo> {
+public class Tempo implements Comparable<Tempo>, Hora, Data {
 
     private final Calendar CALENDARIO = Calendar.getInstance();
     private final Date DATA = new Date();
@@ -109,6 +111,7 @@ public class Tempo implements Comparable<Tempo> {
      *
      * @param segundo
      */
+    @Override
     public void setSegundo(Integer segundo) {
         CALENDARIO.set(Calendar.SECOND, segundo);
     }
@@ -119,6 +122,7 @@ public class Tempo implements Comparable<Tempo> {
      *
      * @param minuto
      */
+    @Override
     public void setMinuto(Integer minuto) {
         CALENDARIO.set(Calendar.MINUTE, minuto);
     }
@@ -129,6 +133,7 @@ public class Tempo implements Comparable<Tempo> {
      *
      * @param hora
      */
+    @Override
     public void setHora(Integer hora) {
         CALENDARIO.set(Calendar.HOUR_OF_DAY, hora);
     }
@@ -139,6 +144,7 @@ public class Tempo implements Comparable<Tempo> {
      *
      * @param dia
      */
+    @Override
     public void setDia(Integer dia) {
         CALENDARIO.set(Calendar.DAY_OF_MONTH, dia);
     }
@@ -149,6 +155,7 @@ public class Tempo implements Comparable<Tempo> {
      *
      * @param mes
      */
+    @Override
     public void setMes(Integer mes) {
         CALENDARIO.set(Calendar.MONTH, mes);
     }
@@ -159,6 +166,7 @@ public class Tempo implements Comparable<Tempo> {
      *
      * @param ano
      */
+    @Override
     public void setAno(Integer ano) {
         CALENDARIO.set(Calendar.YEAR, ano);
     }
@@ -166,6 +174,7 @@ public class Tempo implements Comparable<Tempo> {
     /**
      * @return o segundo atual em formato numérico
      */
+    @Override
     public Integer getSegundoAtual() {
         return CALENDARIO.get(Calendar.SECOND);
     }
@@ -173,6 +182,7 @@ public class Tempo implements Comparable<Tempo> {
     /**
      * @return o segundo atual em formato texto
      */
+    @Override
     public String getSegundoAtualExtenso() {
         return Values.valueOf("VALUES_".concat((String.valueOf(CALENDARIO.get(Calendar.SECOND))))).getVALOR();
     }
@@ -180,6 +190,7 @@ public class Tempo implements Comparable<Tempo> {
     /**
      * @return o minuto atual em formato numérico
      */
+    @Override
     public Integer getMinutoAtual() {
         return CALENDARIO.get(Calendar.MINUTE);
     }
@@ -187,6 +198,7 @@ public class Tempo implements Comparable<Tempo> {
     /**
      * @return o minuto atual em formato texto
      */
+    @Override
     public String getMinutoAtualExtenso() {
         return Values.valueOf("VALUES_".concat((String.valueOf(CALENDARIO.get(Calendar.MINUTE))))).getVALOR();
     }
@@ -194,6 +206,7 @@ public class Tempo implements Comparable<Tempo> {
     /**
      * @return a hora atual em formato numérico
      */
+    @Override
     public Integer getHoraAtual() {
         return CALENDARIO.get(Calendar.HOUR_OF_DAY);
     }
@@ -201,6 +214,7 @@ public class Tempo implements Comparable<Tempo> {
     /**
      * @return a hora atual em formato texto
      */
+    @Override
     public String getHoraAtualExtenso() {
         return Values.valueOf("VALUES_".concat((String.valueOf(CALENDARIO.get(Calendar.HOUR_OF_DAY))))).getVALOR();
     }
@@ -217,6 +231,7 @@ public class Tempo implements Comparable<Tempo> {
      * 
      * @return o dia atual da semana em formato numérico
      */
+    @Override
     public Integer getDiaAtualSemana() {
         return CALENDARIO.get(Calendar.DAY_OF_WEEK);
     }
@@ -225,9 +240,11 @@ public class Tempo implements Comparable<Tempo> {
      * 
      * @return o dia atual do mês em formato numérico
      */
+    @Override
     public Integer getDiaAtualMes() {
         return CALENDARIO.get(Calendar.DAY_OF_MONTH);
     }
+    
 
     /**
      * Descrição: 
@@ -246,6 +263,7 @@ public class Tempo implements Comparable<Tempo> {
      * 
      * @return o mês atual em formato numérico
      */
+    @Override
     public Integer getMesAtual() {
         return CALENDARIO.get(Calendar.MONTH)+1;
     }
@@ -253,6 +271,7 @@ public class Tempo implements Comparable<Tempo> {
     /**
      * @return o ano atual em formato numérico
      */
+    @Override
     public Integer getAnoAtual() {
         return CALENDARIO.get(Calendar.YEAR);
     }
@@ -260,6 +279,7 @@ public class Tempo implements Comparable<Tempo> {
     /**
      * @return o dia atual da semana em formato texto
      */
+    @Override
     public String getDiaAtualExtensoSemana() {
         S_DATA.applyPattern("EEEEE");
         return S_DATA.format(DATA);
@@ -268,6 +288,7 @@ public class Tempo implements Comparable<Tempo> {
     /**
      * @return o dia atual do mês em formato texto
      */
+    @Override
     public String getDiaAtualMesExtenso() {
         return Values.valueOf("VALUES_".concat((String.valueOf(CALENDARIO.get(Calendar.DAY_OF_MONTH))))).getVALOR();
     }
@@ -275,6 +296,7 @@ public class Tempo implements Comparable<Tempo> {
     /**
      * @return o mês atual em formato texto
      */
+    @Override
     public String getMesAtualExtenso() {
         S_DATA.applyPattern("MMMMM");
         return S_DATA.format(DATA);
@@ -447,6 +469,7 @@ public class Tempo implements Comparable<Tempo> {
      * @param pattern padrão (opcional) a se utilizar na formatação do texto
      * @return dia da semana
      */
+    @Override
     public String getDiaSemana(int a, int m, int d, String... pattern) {
         if (pattern != null) {
             if (pattern.length > 0) {
@@ -465,6 +488,7 @@ public class Tempo implements Comparable<Tempo> {
      * @param ano
      * @return um booleano
      */
+    @Override
     public boolean isBissexto(int ano) {
         return (((ano % 400 == 0) || (!(ano % 100 == 0) && (ano % 4 == 0))));
     }
@@ -476,6 +500,7 @@ public class Tempo implements Comparable<Tempo> {
      * @param ano valor entre (-9999 a +9999)
      * @return um ano por extenso
      */
+    @Override
     public String getAnoExtenso(int ano) {
         String s = String.valueOf(ano);
         final String CONJUNCAO_E = " e ", CONJUNCAO_MIL = " mil ", CONJUNCAO_MEN = "Menos ", CONJUNCAO_M = "m",
