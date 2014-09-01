@@ -17,6 +17,8 @@ import tempo.biblioteca.enums.Feriados;
 /**
  *
  * @author tulio.xcrtf
+ * @version 1.0
+ * @see Feriados
  */
 public class Feriado {
 

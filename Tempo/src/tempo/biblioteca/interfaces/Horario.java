@@ -14,6 +14,7 @@ package tempo.biblioteca.interfaces;
 /**
  *
  * @author tulio.xcrtf
+ * @version 1.0
  */
 public interface Horario {
 

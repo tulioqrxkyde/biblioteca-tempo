@@ -20,6 +20,7 @@ import tempo.biblioteca.unidadetempo.UnidadeTempo;
 /**
  *
  * @author tulio.xcrtf
+ * @version 1.0
  */
 public class Tempo extends UnidadeTempo implements Comparable<Tempo>, Data, Horario {
 
@@ -137,7 +138,8 @@ public class Tempo extends UnidadeTempo implements Comparable<Tempo>, Data, Hora
     }
 
     /**
-     * @return o segundo atual em formato numérico
+     * Descrição: Obtém o segundo atual em formato numérico
+     * @return segundo atual
      */
     @Override
     public Integer getSegundoAtual() {
@@ -145,7 +147,10 @@ public class Tempo extends UnidadeTempo implements Comparable<Tempo>, Data, Hora
     }
 
     /**
-     * @return o segundo atual em formato texto
+     * Descrição: Obtém o segundo atual em formato texto
+     * 
+     * @return o segundo atual
+     * @see Values
      */
     @Override
     public String getSegundoAtualExtenso() {
@@ -153,7 +158,9 @@ public class Tempo extends UnidadeTempo implements Comparable<Tempo>, Data, Hora
     }
 
     /**
-     * @return o minuto atual em formato numérico
+     * Descrição: Obtém o minuto atual em formato numérico
+     * 
+     * @return o minuto atual
      */
     @Override
     public Integer getMinutoAtual() {
@@ -161,7 +168,10 @@ public class Tempo extends UnidadeTempo implements Comparable<Tempo>, Data, Hora
     }
 
     /**
-     * @return o minuto atual em formato texto
+     * Descrição: Obtém o minuto atual em formato texto
+     * 
+     * @return o minuto atual
+     * @see Values
      */
     @Override
     public String getMinutoAtualExtenso() {
@@ -169,7 +179,9 @@ public class Tempo extends UnidadeTempo implements Comparable<Tempo>, Data, Hora
     }
 
     /**
-     * @return a hora atual em formato numérico
+     * Descrição: Obtém a hora atual em formato numérico
+     * 
+     * @return a hora atual
      */
     @Override
     public Integer getHoraAtual() {
@@ -177,7 +189,10 @@ public class Tempo extends UnidadeTempo implements Comparable<Tempo>, Data, Hora
     }
 
     /**
-     * @return a hora atual em formato texto
+     * Descrição: Obtém a hora atual em formato texto
+     * 
+     * @return a hora atual
+     * @see Values
      */
     @Override
     public String getHoraAtualExtenso() {
@@ -185,7 +200,8 @@ public class Tempo extends UnidadeTempo implements Comparable<Tempo>, Data, Hora
     }
 
     /**
-     *  Descrição: 
+     *  Descrição: Obtém o dia da semana atual em formato numérico
+     * 
      * ( Domingo / Sunday         - > 1 )
      * ( Segunda-feira / Monday   - > 2 )
      * ( Terça-feira / Tuesday    - > 3 )
@@ -194,7 +210,7 @@ public class Tempo extends UnidadeTempo implements Comparable<Tempo>, Data, Hora
      * ( Sexta-feira / Friday     - > 6 )
      * ( Sábado / Saturday        - > 7 ).
      * 
-     * @return o dia atual da semana em formato numérico
+     * @return o dia atual da semana
      */
     @Override
     public Integer getDiaAtualSemana() {
@@ -202,7 +218,9 @@ public class Tempo extends UnidadeTempo implements Comparable<Tempo>, Data, Hora
     }
 
     /**
-     * @return o dia atual do mês em formato numérico
+     * Descrição: Obtém o dia atual do mês em formato numérico
+     * 
+     * @return o dia atual do mês
      */
     @Override
     public Integer getDiaAtualMes() {
@@ -211,7 +229,8 @@ public class Tempo extends UnidadeTempo implements Comparable<Tempo>, Data, Hora
     
 
     /**
-     * Descrição: 
+     * Descrição: Obtém o mês atual em formato numérico
+     * 
      * ( Janeiro / January       - > 1 )
      * ( Fevereiro / February    - > 2 )
      * ( Março / March           - > 3 )
@@ -225,7 +244,7 @@ public class Tempo extends UnidadeTempo implements Comparable<Tempo>, Data, Hora
      * ( Novembro / November     - > 11 )
      * ( Dezembro / December     - > 12 )
      * 
-     * @return o mês atual em formato numérico
+     * @return o mês atual
      */
     @Override
     public Integer getMesAtual() {
@@ -233,7 +252,8 @@ public class Tempo extends UnidadeTempo implements Comparable<Tempo>, Data, Hora
     }
 
     /**
-     * @return o ano atual em formato numérico
+     * Descrição: Obtém o ano atual em formato numérico
+     * @return o ano atual
      */
     @Override
     public Integer getAnoAtual() {
@@ -241,7 +261,9 @@ public class Tempo extends UnidadeTempo implements Comparable<Tempo>, Data, Hora
     }
 
     /**
-     * @return o dia atual da semana em formato texto
+     * Descrição: Obtém o dia atual da semana em formato texto
+     * 
+     * @return o dia atual da semana
      */
     @Override
     public String getDiaAtualExtensoSemana() {
@@ -250,7 +272,10 @@ public class Tempo extends UnidadeTempo implements Comparable<Tempo>, Data, Hora
     }
 
     /**
-     * @return o dia atual do mês em formato texto
+     * Descrição: Obtém o dia atual do mês formato texto
+     * 
+     * @return o dia atual do mês
+     * @see Values
      */
     @Override
     public String getDiaAtualMesExtenso() {
@@ -258,7 +283,9 @@ public class Tempo extends UnidadeTempo implements Comparable<Tempo>, Data, Hora
     }
 
     /**
-     * @return o mês atual em formato texto
+     * Descrição: Obtém o mês atual em formato texto
+     * 
+     * @return o mês atual
      */
     @Override
     public String getMesAtualExtenso() {
@@ -306,6 +333,7 @@ public class Tempo extends UnidadeTempo implements Comparable<Tempo>, Data, Hora
      *
      * @param ano valor entre (-9999 a +9999)
      * @return um ano por extenso
+     * @see Values
      */
     @Override
     public String getAnoExtenso(int ano) throws IllegalArgumentException {
@@ -370,10 +398,13 @@ public class Tempo extends UnidadeTempo implements Comparable<Tempo>, Data, Hora
     }
 
     /**
-     * Método toString() sobrescrito.
-     *
-     * @return uma String em formato HH:mm:ss - dd/MM/yyyy HH - > hora mm - >
-     * minuto ss - > segundo dd - > dia MM - > mês yyyy - > ano
+     * @return uma String em formato HH:mm:ss - dd/MM/yyyy 
+     * HH - > hora
+     * mm - > minuto
+     * ss - > segundo
+     * dd - > dia
+     * MM - > mês
+     * yyyy - > ano
      */
     @Override
     public String toString() {
@@ -386,8 +417,6 @@ public class Tempo extends UnidadeTempo implements Comparable<Tempo>, Data, Hora
     }
 
     /**
-     * Método compareTo sobrescrito.
-     *
      * @param t um Tempo
      * @return int
      */

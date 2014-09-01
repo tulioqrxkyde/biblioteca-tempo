@@ -18,6 +18,7 @@ import java.util.Date;
 /**
  *
  * @author tulio.xcrtf
+ * @version 1.0
  */
 public abstract class UnidadeTempo {
 

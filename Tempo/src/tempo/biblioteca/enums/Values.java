@@ -14,6 +14,7 @@ package tempo.biblioteca.enums;
 /**
  *
  * @author tulio.xcrtf
+ * @version 1.0
  */
 public enum Values {
 
