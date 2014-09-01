@@ -202,7 +202,6 @@ public class Tempo extends UnidadeTempo implements Comparable<Tempo>, Data, Hora
     }
 
     /**
-     * 
      * @return o dia atual do mês em formato numérico
      */
     @Override
@@ -309,63 +308,63 @@ public class Tempo extends UnidadeTempo implements Comparable<Tempo>, Data, Hora
      * @return um ano por extenso
      */
     @Override
-    public String getAnoExtenso(int ano) {
+    public String getAnoExtenso(int ano) throws IllegalArgumentException {
         String s = String.valueOf(ano);
         final String CONJUNCAO_E = " e ", CONJUNCAO_MIL = " mil ", CONJUNCAO_MEN = "Menos ", CONJUNCAO_M = "m",
                 STR_C = "Cento";
         StringBuilder sb = new StringBuilder();
 
-        try {
-            if (ano < -9999 || ano > 9999) {
-                throw new IllegalArgumentException();
-            }
-
-            if (Integer.signum(ano) == -1) {
-                sb.insert(0, CONJUNCAO_MEN);
-                s = String.valueOf(Math.abs(ano));
-            }
-
-            switch (s.length()) {
-                case 1:
-                case 2:
-                    sb.append(Values.values()[Integer.parseInt(s)].getVALOR()).toString();
-                    break;
-                case 3:
-                    if (s.charAt(0) != '0') {
-                        sb.append(Values.values()[Integer.parseInt(String.valueOf(s.charAt(0))) + 99].getVALOR()).toString();
-                        if (!s.substring(1).equals("00")) {
-                            sb.append(CONJUNCAO_E);
-                            sb.append(Values.values()[Integer.parseInt(s.substring(1))].getVALOR());
-                        } else {
-                            sb.delete(2, sb.length());
-                            sb.append("m");
-                        }
-                        break;
-                    }
-                case 4:
-                    if (s.charAt(0) != '0') {
-                        sb.append(Values.values()[Integer.parseInt(String.valueOf(s.charAt(0)))].getVALOR()).toString();
-                        sb.append(CONJUNCAO_MIL);
-                    }
-                    if (s.charAt(1) != '0') {
-                        sb.append(CONJUNCAO_E);
-                        sb.append(Values.values()[Integer.parseInt(String.valueOf(s.charAt(1))) + 99].getVALOR());
-                    }
-                    if (!s.substring(2).equals("00")) {
-                        sb.delete(sb.toString().indexOf(CONJUNCAO_E), sb.toString().indexOf(CONJUNCAO_E) + 3);
-                        sb.append(CONJUNCAO_E);
-                        sb.append(Values.values()[Integer.parseInt(s.substring(2))].getVALOR());
-                    } else if (sb.toString().contains(STR_C)) {
-                        sb.insert(sb.toString().indexOf(STR_C) + 5, CONJUNCAO_M);
-                        sb.delete(sb.toString().indexOf(STR_C) + 2, sb.toString().indexOf(STR_C) + 5);
-                        sb.replace(sb.indexOf("  "), sb.indexOf("  ") + 1, "");
-                    }
-                    break;
-                default:
-                    return "";
-            }
-        } catch (IllegalArgumentException iE) {
+        if (ano < -9999 || ano > 9999) {
             throw new IllegalArgumentException("Insira um número entre -9999 e +9999");
+        }
+
+        if (Integer.signum(ano) == -1) {
+            sb.insert(0, CONJUNCAO_MEN);
+            s = String.valueOf(Math.abs(ano));
+        }
+
+        switch (s.length()) {
+            case 1:
+            case 2:
+                sb.append(Values.values()[Integer.parseInt(s)].getVALOR()).toString();
+                break;
+            case 3:
+                if (s.charAt(0) != '0') {
+                    sb.append(Values.values()[Integer.parseInt(String.valueOf(s.charAt(0))) + 99].getVALOR()).toString();
+                    if (!s.substring(1).equals("00")) {
+                        sb.append(CONJUNCAO_E);
+                        sb.append(Values.values()[Integer.parseInt(s.substring(1))].getVALOR());
+                    } else {
+                        sb.delete(2, sb.length());
+                        sb.append("m");
+                    }
+                    break;
+                }
+            case 4:
+                if (s.charAt(0) != '0') {
+                    sb.append(Values.values()[Integer.parseInt(String.valueOf(s.charAt(0)))].getVALOR()).toString();
+                    sb.append(CONJUNCAO_MIL);
+                }
+                if (s.charAt(1) != '0') {
+                    sb.append(CONJUNCAO_E);
+                    sb.append(Values.values()[Integer.parseInt(String.valueOf(s.charAt(1))) + 99].getVALOR());
+                }
+                if (!s.substring(2).equals("00")) {
+                    if (sb.indexOf(CONJUNCAO_E) > -1) {
+                        sb.delete(sb.indexOf(CONJUNCAO_E), sb.toString().indexOf(CONJUNCAO_E) + 3);
+                    }
+                    sb.append(CONJUNCAO_E);
+                    sb.append(Values.values()[Integer.parseInt(s.substring(2))].getVALOR());
+                } else if (sb.toString().contains(STR_C)) {
+                    sb.insert(sb.toString().indexOf(STR_C) + 5, CONJUNCAO_M);
+                    sb.delete(sb.toString().indexOf(STR_C) + 2, sb.toString().indexOf(STR_C) + 5);
+                }
+                if (sb.toString().contains("  ")) {
+                    sb.replace(sb.indexOf("  "), sb.indexOf("  ") + 1, "");
+                }
+                break;
+            default:
+                return "";
         }
         return sb.toString();
     }
@@ -373,13 +372,8 @@ public class Tempo extends UnidadeTempo implements Comparable<Tempo>, Data, Hora
     /**
      * Método toString() sobrescrito.
      *
-     * @return uma String em formato HH:mm:ss - dd/MM/yyyy 
-     * HH - > hora
-     * mm - > minuto
-     * ss - > segundo
-     * dd - > dia
-     * MM - > mês
-     * yyyy - > ano
+     * @return uma String em formato HH:mm:ss - dd/MM/yyyy HH - > hora mm - >
+     * minuto ss - > segundo dd - > dia MM - > mês yyyy - > ano
      */
     @Override
     public String toString() {
@@ -399,8 +393,7 @@ public class Tempo extends UnidadeTempo implements Comparable<Tempo>, Data, Hora
      */
     @Override
     public int compareTo(Tempo t) {
-        long tempo = CALENDARIO.getTimeInMillis(), tempo2 = CALENDARIO.getTimeInMillis();
+        long tempo = this.CALENDARIO.getTimeInMillis(), tempo2 = t.CALENDARIO.getTimeInMillis();
         return ((tempo > tempo2) ? 1 : ((tempo == tempo2)) ? 0 : -1);
     }
-
 }
