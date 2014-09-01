@@ -15,7 +15,7 @@ package tempo.biblioteca.interfaces;
  *
  * @author tulio.xcrtf
  */
-public interface Hora {
+public interface Horario {
 
     public void setSegundo(Integer segundo);
 
